@@ -22,13 +22,6 @@ int main() {
 	int seriAns;
 	
 	intro (introAns, paraAns, seriAns);
-	
-	/*int givenR;
-	int givenI;
-	int givenV;
-	int R;
-	int I;
-	int V;*/
 
 	return 0;
 }
@@ -132,3 +125,4 @@ void calc_seriRT() {
 void calc_seriV() {
     
 }
+
