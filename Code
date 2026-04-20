@@ -5,29 +5,30 @@ using namespace std;
 
 // functions
 bool error();
-void intro(int &introAns);
+void intro(int &introAns, int &paraAns, int &seriAns);
     // parallel
 void paraSele(int &paraAns);
 void calc_paraRT();
 void calc_paraI();
     // series 
-void seriSele();
+void seriSele(int &sereAns);
 void calc_seriRT();
-void calc_seriI();
+void calc_seriV();
 
 int main() {
 
 	int introAns;
 	int paraAns;
 	int seriAns;
-	intro (introAns);
 	
-	int givenR;
+	intro (introAns, paraAns, seriAns);
+	
+	/*int givenR;
 	int givenI;
 	int givenV;
 	int R;
 	int I;
-	int V;
+	int V;*/
 
 	return 0;
 }
@@ -43,7 +44,7 @@ bool error() {
 	return false;
 }
 
-void intro(int &introAns) {
+void intro(int &introAns, int &paraAns, int &seriAns) {
 	// find circuit
 	cout<<"What kind of circuit is being calculated for?"<<endl;
 	cout<<"1) Parallel\n2) Series"<<endl;
@@ -61,12 +62,10 @@ void intro(int &introAns) {
 		    break;
 	}
 
-    int &paraAns;
-
 	if(introAns==1) {
 		paraSele(paraAns);
 	} else if(introAns==2) {
-		seriSele();
+		seriSele(seriAns);
 	}
 }
 
@@ -94,3 +93,42 @@ void paraSele(int &paraAns) {
 	}
 }
 
+void calc_paraRT {
+    
+}
+
+void calc_paraI {
+    
+}
+
+void seriSele (int &sereAns) {
+    cout<<"\nWhat is being calculated?"<<endl;
+    cout<<"1) Total resistance\n2) Voltage drops"<<endl;
+    
+    while(true) {
+		cout<<"Selection: ";
+		cin>>sereAns;
+
+		if(error()) continue;
+
+		if(sereAns<1||sereAns>2) {
+			cout<<"Invalid input. Please try again.\n";
+			continue;
+		}
+		    break;
+	}
+
+	if(sereAns==1) {
+		calc_sereRT();
+	} else if(sereAns==2) {
+		calc_sereV();
+	}
+}
+
+void calc_sereRT {
+    
+}
+
+void calc_sereV {
+    
+}
