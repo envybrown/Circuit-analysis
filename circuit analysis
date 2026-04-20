@@ -1,0 +1,96 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+// functions
+bool error();
+void intro(int &introAns);
+    // parallel
+void paraSele(int &paraAns);
+void calc_paraRT();
+void calc_paraI();
+    // series 
+void seriSele();
+void calc_seriRT();
+void calc_seriI();
+
+int main() {
+
+	int introAns;
+	int paraAns;
+	int seriAns;
+	intro (introAns);
+	
+	int givenR;
+	int givenI;
+	int givenV;
+	int R;
+	int I;
+	int V;
+
+	return 0;
+}
+
+bool error() {
+	// check if input is a non # or invalid
+	if (cin.fail()) {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cout<<"Invalid input. Please try again.\n";
+		return true;
+	}
+	return false;
+}
+
+void intro(int &introAns) {
+	// find circuit
+	cout<<"What kind of circuit is being calculated for?"<<endl;
+	cout<<"1) Parallel\n2) Series"<<endl;
+
+	while(true) {
+		cout<<"Selection: ";
+		cin>>introAns;
+
+		if(error()) continue;
+
+		if(introAns<1||introAns>2) {
+			cout<<"Invalid input. Please try again.\n";
+			continue;
+		}
+		    break;
+	}
+
+    int &paraAns;
+
+	if(introAns==1) {
+		paraSele(paraAns);
+	} else if(introAns==2) {
+		seriSele();
+	}
+}
+
+void paraSele(int &paraAns) {
+    cout<<"\nWhat is being calculated?"<<endl;
+    cout<<"1) Total resistance\n2) Resistor currents"<<endl;
+    
+    while(true) {
+		cout<<"Selection: ";
+		cin>>paraAns;
+
+		if(error()) continue;
+
+		if(paraAns<1||paraAns>2) {
+			cout<<"Invalid input. Please try again.\n";
+			continue;
+		}
+		    break;
+	}
+
+	if(paraAns==1) {
+		calc_paraRT();
+	} else if(paraAns==2) {
+		calc_paraI();
+	}
+}
+
