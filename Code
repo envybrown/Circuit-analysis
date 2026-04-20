@@ -11,7 +11,7 @@ void paraSele(int &paraAns);
 void calc_paraRT();
 void calc_paraI();
     // series 
-void seriSele(int &sereAns);
+void seriSele(int &seriAns);
 void calc_seriRT();
 void calc_seriV();
 
@@ -93,42 +93,42 @@ void paraSele(int &paraAns) {
 	}
 }
 
-void calc_paraRT {
+void calc_paraRT() {
     
 }
 
-void calc_paraI {
+void calc_paraI() {
     
 }
 
-void seriSele (int &sereAns) {
+void seriSele (int &seriAns) {
     cout<<"\nWhat is being calculated?"<<endl;
     cout<<"1) Total resistance\n2) Voltage drops"<<endl;
     
     while(true) {
 		cout<<"Selection: ";
-		cin>>sereAns;
+		cin>>seriAns;
 
 		if(error()) continue;
 
-		if(sereAns<1||sereAns>2) {
+		if(seriAns<1||seriAns>2) {
 			cout<<"Invalid input. Please try again.\n";
 			continue;
 		}
 		    break;
 	}
 
-	if(sereAns==1) {
-		calc_sereRT();
-	} else if(sereAns==2) {
-		calc_sereV();
+	if(seriAns==1) {
+		calc_seriRT();
+	} else if(seriAns==2) {
+		calc_seriV();
 	}
 }
 
-void calc_sereRT {
+void calc_seriRT() {
     
 }
 
-void calc_sereV {
+void calc_seriV() {
     
 }
