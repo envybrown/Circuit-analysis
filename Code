@@ -23,7 +23,7 @@ int main() {
 	    intro ();
 	
 	while(true){
-    	cout<<"\nRun again (Y/N)?: ";
+    	cout<<"\nRun again (y/n)?: ";
     	cin>>answer;
         
         if (error()) continue;
