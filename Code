@@ -212,15 +212,52 @@ void calc_seriRT() {
 
 void calc_seriV() {
 	int seri_numRT;
+	double resistors[100];
 	double seri_resRT, seri_sumRT=0.0;
 
-	calc_seriRT();
+	cout<<"\n";
+
+	// find number of resistors
+	while(true) {
+		cout<<"Enter number of resistors: ";
+		cin>>seri_numRT;
+
+		if(error()) continue;
+
+		if(seri_numRT<=0) {
+			cout<<"Invalid input. Please try again.\n";
+			continue;
+		}
+		break;
+	}
+
+	cout<<"\n";
+
+	// find resistor values
+	for(int i=0; i<seri_numRT; i++) {
+		while(true) {
+			cout<<"Enter resistance for resistor "<<i+1<<": ";
+			cin>>resistors[i];
+
+			if(error()) continue;
+
+			if(resistors[i]<=0) {
+				cout<<"Resistance must be positive. Please try again.\n";
+				continue;
+			}
+			break;
+		}
+
+		// add resistor values together
+		seri_sumRT+=resistors[i];
+	}
 
 	int seri_volV;
 	double seri_curV=0.0;
 
 	cout<<"\n";
-
+    
+    // find voltage
 	while(true) {
 		cout<<"Enter total voltage: ";
 		cin>>seri_volV;
@@ -234,12 +271,16 @@ void calc_seriV() {
 		break;
 	}
 
-	seri_curV=seri_volV/seri_resRT;
-
-	//multiply current by each resistance
+    // find current 
+	seri_curV=seri_volV/seri_sumRT;
 
 	cout<<"\n";
 
-	//cout each resistance voltage
+	// multiply current by each resistance and loop print 
+	for(int i=0; i<seri_numRT; i++) {
+		double seri_dropV=seri_curV*resistors[i];
+		cout<<"Resistor "<<i+1<<": "<<seri_dropV<<" volts\n";
+	}
+
 }
 
