@@ -5,24 +5,18 @@ using namespace std;
 
 // functions
 bool error();
-void intro(int &introAns, int &paraAns, int &seriAns);
+void intro();
     // parallel
-void paraSele(int &paraAns);
+void paraSele();
 void calc_paraRT();
 void calc_paraI();
     // series 
-void seriSele(int &seriAns);
+void seriSele();
 void calc_seriRT();
 void calc_seriV();
 
 int main() {
-
-	int introAns;
-	int paraAns;
-	int seriAns;
-	
-	intro (introAns, paraAns, seriAns);
-
+	intro ();
 	return 0;
 }
 
@@ -37,7 +31,9 @@ bool error() {
 	return false;
 }
 
-void intro(int &introAns, int &paraAns, int &seriAns) {
+void intro() {
+	int introAns;
+	
 	// find circuit
 	cout<<"What kind of circuit is being calculated for?"<<endl;
 	cout<<"1) Parallel\n2) Series"<<endl;
@@ -54,15 +50,18 @@ void intro(int &introAns, int &paraAns, int &seriAns) {
 		}
 		    break;
 	}
-
+    
+    // circuit directory 
 	if(introAns==1) {
-		paraSele(paraAns);
+		paraSele();
 	} else if(introAns==2) {
-		seriSele(seriAns);
+		seriSele();
 	}
 }
 
-void paraSele(int &paraAns) {
+void paraSele() {
+    int paraAns;
+    
     cout<<"\nWhat is being calculated?"<<endl;
     cout<<"1) Total resistance\n2) Resistor currents"<<endl;
     
@@ -87,14 +86,56 @@ void paraSele(int &paraAns) {
 }
 
 void calc_paraRT() {
+    int para_numRT;
+    double para_resRT, para_sumRT=0.0;
     
+    cout<<"\n";
+    
+    while(true){
+        cout<<"Enter number of resistors: ";
+        cin>>para_numRT;
+        
+        if(error()) continue;
+        
+        if(para_numRT<=0){ 
+            cout<<"Invalid input. Please try again\n";
+            continue;
+        }
+            break;
+    }
+    
+    cout<<"\n";
+    
+    for(int i=0; i<para_numRT; i++){
+        while(true){
+            cout<<"Enter resistance for resistor "<<i+1<<": ";
+            cin>>para_resRT;
+            
+            if(error()) continue;
+            
+            if(para_resRT<=0){
+                cout<<"Resistance must be positive. Please try again.\n";
+                continue;
+            }
+                break;
+        }
+        
+        para_sumRT+=1.0/para_resRT;
+    }
+    
+    cout<<"\n";
+    
+    double para_totRT=1.0/para_sumRT;
+    cout<<"Total resistance in parallel: "<<para_totRT<<" ohms\n";
 }
 
 void calc_paraI() {
     
 }
 
-void seriSele (int &seriAns) {
+void seriSele () {
+    int seriAns;
+    
     cout<<"\nWhat is being calculated?"<<endl;
     cout<<"1) Total resistance\n2) Voltage drops"<<endl;
     
@@ -125,4 +166,3 @@ void calc_seriRT() {
 void calc_seriV() {
     
 }
-
