@@ -62,6 +62,7 @@ void intro() {
 void paraSele() {
 	int paraAns;
 
+	// find calc
 	cout<<"\nWhat is being calculated?"<<endl;
 	cout<<"1) Total resistance\n2) Resistor currents"<<endl;
 
@@ -78,6 +79,7 @@ void paraSele() {
 		break;
 	}
 
+	// calc directory
 	if(paraAns==1) {
 		calc_paraRT();
 	} else if(paraAns==2) {
@@ -136,6 +138,7 @@ void calc_paraI() {
 void seriSele() {
 	int seriAns;
 
+	// find calc
 	cout<<"\nWhat is being calculated?"<<endl;
 	cout<<"1) Total resistance\n2) Voltage drops"<<endl;
 
@@ -152,6 +155,7 @@ void seriSele() {
 		break;
 	}
 
+	// calc directory
 	if(seriAns==1) {
 		calc_seriRT();
 	} else if(seriAns==2) {
@@ -165,6 +169,7 @@ void calc_seriRT() {
 
 	cout<<"\n";
 
+	// find number of resistors
 	while(true) {
 		cout<<"Enter number of resistors: ";
 		cin>>seri_numRT;
@@ -180,6 +185,7 @@ void calc_seriRT() {
 
 	cout<<"\n";
 
+	// find resistor values
 	for(int i=0; i<seri_numRT; i++) {
 		while(true) {
 			cout<<"Enter resistance for resistor "<<i+1<<": ";
@@ -194,9 +200,11 @@ void calc_seriRT() {
 			break;
 		}
 
+		// add resistor values together
 		seri_sumRT+=seri_resRT;
 	}
 
+	//show sum
 	cout<<"\n";
 	cout<<"Total resistance in series: "<<seri_sumRT<<" ohms\n";
 
@@ -206,39 +214,7 @@ void calc_seriV() {
 	int seri_numRT;
 	double seri_resRT, seri_sumRT=0.0;
 
-	cout<<"\n";
-
-	while(true) {
-		cout<<"Enter number of resistors: ";
-		cin>>seri_numRT;
-
-		if(error()) continue;
-
-		if(seri_numRT<=0) {
-			cout<<"Invalid input. Please try again.\n";
-			continue;
-		}
-		break;
-	}
-
-	cout<<"\n";
-
-	for(int i=0; i<seri_numRT; i++) {
-		while(true) {
-			cout<<"Enter resistance for resistor "<<i+1<<": ";
-			cin>>seri_resRT;
-
-			if(error()) continue;
-
-			if(seri_resRT<=0) {
-				cout<<"Resistance must be positive. Please try again.\n";
-				continue;
-			}
-			break;
-		}
-
-		seri_sumRT+=seri_resRT;
-	}
+	calc_seriRT();
 
 	int seri_volV;
 	double seri_curV=0.0;
