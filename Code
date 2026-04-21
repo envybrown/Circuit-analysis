@@ -16,7 +16,27 @@ void calc_seriRT();
 void calc_seriV();
 
 int main() {
-	intro ();
+	char answer;
+	
+	do{ 
+	    
+	    intro ();
+	
+	while(true){
+    	cout<<"\nRun again (Y/N)?: ";
+    	cin>>answer;
+        
+        if (error()) continue;
+        	
+        if(answer!='y'&&answer!='Y'&&answer!='n'&&answer!='N'){
+        cout<<"Invalid input. Please try again.";
+        continue;
+        }
+        break;
+	}
+	
+	} while (answer=='y'||answer=='Y');
+	
 	return 0;
 }
 
