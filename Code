@@ -98,7 +98,7 @@ void calc_paraRT() {
         if(error()) continue;
         
         if(para_numRT<=0){ 
-            cout<<"Invalid input. Please try again\n";
+            cout<<"Invalid input. Please try again.\n";
             continue;
         }
             break;
@@ -160,6 +160,45 @@ void seriSele () {
 }
 
 void calc_seriRT() {
+    int seri_numRT;
+    double seri_resRT, seri_sumRT=0.0;
+    
+    cout<<"\n";
+    
+    while(true){
+        cout<<"Enter number of resistors: ";
+        cin>>seri_numRT;
+        
+        if(error()) continue;
+        
+        if(seri_numRT<=0){ 
+            cout<<"Invalid input. Please try again.\n";
+            continue;
+        }
+            break;
+    }
+    
+    cout<<"\n";
+    
+    for(int i=0; i<seri_numRT; i++){
+        while(true){
+            cout<<"Enter resistance for resistor "<<i+1<<": ";
+            cin>>seri_resRT;
+            
+            if(error()) continue;
+            
+            if(seri_resRT<=0){
+                cout<<"Resistance must be positive. Please try again.\n";
+                continue;
+            }
+                break;
+        }
+        
+        seri_sumRT+=seri_resRT;
+    }
+    
+    cout<<"\n";
+    cout<<"Total resistance in series: "<<seri_sumRT<<" ohms\n";
     
 }
 
