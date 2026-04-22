@@ -35,7 +35,7 @@ int main() {
         break;
 	}
 	
-	} while (answer=='y'||answer=='Y');
+	} while (answer=='y'||answer=='Y'); // run again if asked
 	
 	return 0;
 }
@@ -113,6 +113,7 @@ void calc_paraRT() {
 
 	cout<<"\n";
 
+    // find number of resistors 
 	while(true) {
 		cout<<"Enter number of resistors: ";
 		cin>>para_numRT;
@@ -128,6 +129,7 @@ void calc_paraRT() {
 
 	cout<<"\n";
 
+    // find resistance values 
 	for(int i=0; i<para_numRT; i++) {
 		while(true) {
 			cout<<"Enter resistance for resistor "<<i+1<<": ";
@@ -141,7 +143,8 @@ void calc_paraRT() {
 			}
 			break;
 		}
-
+        
+        // inverse inputs, inverse total
 		para_sumRT+=1.0/para_resRT;
 	}
 
@@ -158,6 +161,7 @@ void calc_paraI() {
 
 	cout<<"\n";
 
+    // find number of resistors 
 	while(true) {
 		cout<<"Enter number of resistors: ";
 		cin>>para_numRT;
@@ -173,6 +177,7 @@ void calc_paraI() {
 
 	cout<<"\n";
 
+    // find resistance value 
 	for(int i=0; i<para_numRT; i++) {
 		while(true) {
 			cout<<"Enter resistance for resistor "<<i+1<<": ";
@@ -187,7 +192,10 @@ void calc_paraI() {
 			break;
 		}
     
+        // turn RT into integer 
         resistors[i]=para_resRT;
+        
+        // inverse inputs, inverse total 
 		para_sumRT+=1.0/resistors[i];
 	}
 	
