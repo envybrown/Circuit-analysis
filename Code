@@ -4,15 +4,25 @@
 using namespace std;
 
 // functions
+    // if line fails ask for new input
 bool error();
+    // ask parallel or series ciruit 
 void intro();
+
 // parallel
+    // ask RT or I
 void paraSele();
+    // solve for parallel RT
 void calc_paraRT();
+    // solve for parallel I
 void calc_paraI();
+
 // series
+    // ask for RT or I 
 void seriSele();
+    // solve for series RT
 void calc_seriRT();
+    // solve for series V
 void calc_seriV();
 
 int main() {
