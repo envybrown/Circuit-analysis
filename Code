@@ -45,6 +45,8 @@ int main() {
         break;
 	}
 	
+	cout<<"\n";
+	
 	} while (answer=='y'||answer=='Y'); // run again if asked
 	
 	return 0;
@@ -390,4 +392,3 @@ void calc_seriV() {
 	}
 
 }
-
